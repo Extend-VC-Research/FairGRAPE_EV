@@ -4,6 +4,21 @@ This repo presents an official implementation of FairGRAPE: Fairness-aware GRAdi
 
 ![FairGRAPE_concept2](https://user-images.githubusercontent.com/60991389/177890025-4599bd0f-176d-4f5f-aff8-73df9c963a6e.png)
 
+## RE-TRAINING
+### Add images to training validation folder
+Randomly split the images that are to be added into training and validation sets. Ratio 80:20 or similar. If planning to test with same data batch, then divide as 80:10:10 (test set).  
+Name images as _train_XXXXX_ and _val_XXXX_, where XXXX is an ID. Names will be needed for the labelling csv file.
+
+### Labelling images for training/validation
+Label tables are stored in the _csv_ folder. For FairFace, open FairFace.csv and fill the relevant columns. **IGNORE** the _service_test_ and _kmeansCluster_ columns as they are not used in the process.
+
+### Run the training routine
+Run in terminal, as per the repo's instructions.
+```
+python main_test.py --sensitive_group 'race' --loss_type 'race' --prune_type 'FairGRAPE' --network 'resnet34' --dataset 'FairFace'  --prune_rate 0.99
+```
+Note: We could experiment on the training parameters in a later date, and keep an eye on the repo's discussion page, and further publications.
+
 ## Dependencies
 
 The code has been tested on the following environment:
@@ -35,7 +50,7 @@ python main_test.py --sensitive_group 'gender' --loss_type 'race' --prune_type '
 
 FairFace experiments
 ```
-python main_test.py --sensitive_group race--loss_type 'race' --prune_type 'FairGRAPE' --network 'resnet34' --dataset 'FairFace'  --prune_rate 0.99
+python main_test.py --sensitive_group 'race' --loss_type 'race' --prune_type 'FairGRAPE' --network 'resnet34' --dataset 'FairFace'  --prune_rate 0.99
 ```
 
 CelebA experiments

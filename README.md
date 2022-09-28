@@ -11,6 +11,7 @@ Name images as _train_XXXXX_ and _val_XXXX_, where XXXX is an ID. Names will be 
 
 ### Labelling images for training/validation
 Label tables are stored in the _csv_ folder. For FairFace, open FairFace.csv and fill the relevant columns. **IGNORE** the _service_test_ and _kmeansCluster_ columns as they are not used in the process.
+**Alternatively**, create a new csv file with the same format, specific to the new training and validation batch. Then perform merge all the label csv files, to create the input for the training routine.
 
 ### Run the training routine
 Run in terminal, as per the repo's instructions.

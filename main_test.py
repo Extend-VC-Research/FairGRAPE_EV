@@ -47,7 +47,7 @@ def experiment(args):
     print("Type:{}, Network:{}, Sparsity:{}, Dataset:{}".format(prune_type, network, prune_rate,dataset))
 
     if dataset == 'FairFace' or dataset == "ImbalancedFairFace":
-        csv = parameters[]#'csv/FairFace.csv'
+        csv = parameters['FairFace_input_csv']#'csv/FairFace.csv'
         face_dir = 'Images/FairFace'
         download_dataset(dataset, face_dir)
         # Which variables are used in training.          

@@ -20,6 +20,12 @@ python main_test.py --sensitive_group 'race' --loss_type 'race' --prune_type 'Fa
 ```
 Note: We could experiment on the training parameters in a later date, and keep an eye on the repo's discussion page, and further publications.
 
+## Run a pre-trained model
+```
+FairFace_FairGRAPE_‘classes --prune_type FairGRAPE --network mobilenetv2 --dataset FairFace  --prune_rate 0.9 --batch 64 --exp_idx 500 --stop_batch 10
+
+python main_test.py --sensitive_group 'race' --loss_type 'race' --prune_type 'FairGRAPE' --network 'mobilenetv2'--dataset 'FairFace'  --prune_rate 0.9 --batch 64 --exp_idx 500 --stop_batch 10 --keep_per_iter 0.975 --checkpoint "FairFace_FairGRAPE_mobilenetv2.pt" --init_train 0 --retrain 0 --print_acc 1
+```
 ## Dependencies
 
 The code has been tested on the following environment:

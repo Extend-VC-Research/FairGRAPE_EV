@@ -47,7 +47,7 @@ def experiment(args):
     print("Type:{}, Network:{}, Sparsity:{}, Dataset:{}".format(prune_type, network, prune_rate,dataset))
 
     if dataset == 'FairFace' or dataset == "ImbalancedFairFace":
-        csv = 'csv/FairFace.csv'
+        csv = parameters[]#'csv/FairFace.csv'
         face_dir = 'Images/FairFace'
         download_dataset(dataset, face_dir)
         # Which variables are used in training.          
@@ -121,7 +121,7 @@ def experiment(args):
 
     device = torch.device('cuda:0')
     criterion = nn.CrossEntropyLoss()
-
+s
     torch.cuda.empty_cache()
     best_model = make_model(network=network,n_classes=total_classes).to(device)
 
@@ -239,6 +239,12 @@ def experiment(args):
         save_impt_df(cfgs)
 
 if __name__ == "__main__":
+    
+    with open('FG_parameters.yml',"r") as stream:
+        try:
+            parameters = yaml.load(stream,Loader=yaml.FullLoader)
+        except yaml.YAMLError as error:
+            print("parameters file error", error)
 
     parser = argparse.ArgumentParser(description='Parameters for pruning experiements')
     parser.add_argument('--checkpoint',type=str, default=None, help='Path to a trained model.')
